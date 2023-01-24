@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+    color: azure;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.containerMoney {
+    margin-bottom: 15px;
+}
