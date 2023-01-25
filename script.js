@@ -12,8 +12,8 @@ myHeaders.append("apikey", "swHcQL54UGDL5sR1Oc47m56MCEj6n0wg");
 let input = document.querySelector(".containerNomb #devis1");
 const premListe = document.querySelector(".container .containerMoney #pays1");
 const premListe2 = document.querySelector(".container .containerMoney #pays2");
-let affichage = document.querySelector(".containerNomb #affichage")
-console.log(affichage);
+let affichage = document.querySelector(".containerNomb #affichage");
+let taux = document.querySelector(".containerNomb p #tauxChange");
 
 function getvalue() { amount = input.value; };
 
@@ -58,8 +58,7 @@ fetch("https://api.apilayer.com/fixer/symbols?", requestOptions)
  elem2 = document.querySelectorAll(".dropDown2");
   myFunction();
   
-  // valuSelectionne = premListe.options[premListe.selectedIndex].value; 
-  // console.log(valuSelectionne);
+  
   })
   .catch(error => console.log('error', error));
 
@@ -70,9 +69,9 @@ fetch("https://api.apilayer.com/fixer/symbols?", requestOptions)
       fetch(`https://api.apilayer.com/fixer/convert?to=${selecMoney2}&from=${selecMoney}&amount=${amount}`, requestOptions)
         .then(response => response.json())
         .then(result => {
-          console.log(result.result);
-          affichage.value = result.result;
           
+          affichage.value = result.result;
+          taux.innerText = " "+result.info.rate;
         })
         .catch(error => console.log('error', error));
       
